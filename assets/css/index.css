@@ -1,0 +1,277 @@
+/*Global settings*/
+
+@import
+  "https://fonts.googleapis.com/css2?family=Roboto&family=Tangerine&family=VT323&display=swap";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1vw; /*vw size set to reference a scale for local elements*/
+}
+/*Main div position set to fix the navbar to top*/
+#page-wrapper {
+  position: relative;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Start of local settings */
+/*Header div */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #011627;
+  position: fixed;
+  z-index: 4;
+}
+
+#title {
+  padding: 0.3em 3em;
+  font-size: 2.05rem;
+  font-weight: 700;
+  color: #e71d36;
+  white-space: nowrap;
+  align-self: center;
+}
+/*Navigation styling */
+#navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navbar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 2em 4em;
+  font-weight: 700;
+  color: #FDFFFC;
+}
+
+#navbar a:hover {
+  color: #FF9F1C;
+  border-bottom: 4px #FF9F1C solid;
+}/* End of header section */
+
+/*Start of main section */
+main {
+  background-color: #FDFFFC;
+  position: absolute;
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30vh;
+}
+
+.mountain1, .mountain2, .mountain3, .mountain4, .mountain5 {
+  background-color: transparent;
+  border-left: 15em solid transparent;
+  border-right: 15em solid transparent;
+  border-bottom: 28em solid #2ec4b6;
+  z-index: 1;
+  position: absolute;
+}
+
+.mountain2 {
+  border-bottom: 28em solid #011627;
+}
+
+.mountain1 {
+  left: 5em;
+  z-index: 2;
+}
+
+.mountain3 {
+  right: 5em;
+  z-index: 2;
+}
+
+.mountain4 {
+  left: 18em;
+  border-bottom: 28em solid #011627;
+}
+
+.mountain5 {
+  right: 18em;
+  border-bottom: 28em solid #011627;
+}
+
+.clouds, .clouds::after, .clouds::before {
+  position: absolute;
+  width: 7em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: hsl(174deg, 62%, 77%);
+  z-index: 3;
+}
+
+.clouds {
+  animation: flying 20s infinite linear;
+}
+
+@keyframes flying {
+  0% {
+    left: -30em;
+  }
+  100% {
+    left: 30em;
+  }
+}
+
+.clouds::after {
+  content: "";
+  left: 1.5em;
+  top: 1em;
+}
+
+.clouds::before {
+  content: "";
+  right: 3em;
+  top: 1em;
+}
+
+#welcome-section #welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 75vh;
+}
+
+#welcome-text {
+  color: #e71d36;
+  z-index: 3;
+  padding-top: 5vh;
+}
+
+#welcome-text #hello-text{
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  border-right: 0.25em transparent solid;
+  white-space: nowrap;
+  margin: 0 auto;  /* for scrolling effect */
+  overflow: hidden; /*hides text*/
+  animation:
+    typewriter 3.5s steps(40, end),
+    curs 0.65s step-end 20; /*Typing blink will disappear after 20 attempts*/
+}
+/*animation keyframe to type text*/
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/*animation keyframe to blink cursor*/
+@keyframes curs {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #FF9F1C;
+  }
+}
+
+#welcome-text #hello-text a {
+  text-decoration: none;
+  color: #e71d36;
+}
+
+#welcome-text #hello-text a:hover {
+  color: #FF9F1C;
+}
+
+#welcome-section #welcome-container #icons{
+  z-index: 3;
+}
+
+#welcome-section #welcome-container #icons a {
+  padding: 4em;
+  color: #e71d36;
+  transition: all ease 1s;
+}
+
+#welcome-section #welcome-container #icons a:hover .fa-3x{
+  color: #FF9F1C;
+  transform: scale(2) translate(0rem, -2rem);
+}
+
+#projects {
+  display: flex;
+  flex-direction: row;
+  padding: 0em 1em;
+  flex-wrap: wrap;
+}
+
+
+.projects-tile {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0em 1em;
+}
+
+.projects-tile .project-link img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.23), 0 0.5rem 0.5rem rgba(0,0,0,0.23);
+}
+
+.projects-tile .project-link img:hover{
+  transform: scale(0.7);
+}
+
+/* Large devices (desktops, less than 1200px)*/
+@media only screen and (max-width: 1199.98px) {
+  #welcome-section #welcome-container {
+    top: 49vh;
+  }
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media only screen and (max-width: 991.98px) {
+   #welcome-section #welcome-container {
+    top: 45vh;
+  }
+
+  .projects-tile {
+    flex: 75%;
+    max-width: 75%;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px)*/
+@media only screen and (max-width: 767.98px) {
+   #welcome-section #welcome-container {
+    top: 43vh;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media only screen and (max-width: 575.98px) {
+   #welcome-section #welcome-container {
+    top: 41vh;
+  }
+}
